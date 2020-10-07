@@ -20,6 +20,7 @@
 		C646CFE1250655D4008285D8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646CFE0250655D4008285D8 /* Extensions.swift */; };
 		E7363CBB252CE2B80089EFC1 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7363CBA252CE2B80089EFC1 /* Pie.swift */; };
 		E7363CBF252CEBDE0089EFC1 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7363CBE252CEBDE0089EFC1 /* Cardify.swift */; };
+		E7363CC1252DD4080089EFC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7363CC0252DD4080089EFC1 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C646CFE0250655D4008285D8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E7363CBA252CE2B80089EFC1 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		E7363CBE252CEBDE0089EFC1 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		E7363CC0252DD4080089EFC1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,16 +72,12 @@
 		C646CFC324FFD362008285D8 /* MemorizationGame */ = {
 			isa = PBXGroup;
 			children = (
-				C646CFC424FFD362008285D8 /* AppDelegate.swift */,
-				C646CFC624FFD362008285D8 /* SceneDelegate.swift */,
-				C646CFE0250655D4008285D8 /* Extensions.swift */,
-				C646CFC824FFD362008285D8 /* ContentView.swift */,
-				E7363CBE252CEBDE0089EFC1 /* Cardify.swift */,
-				E7363CBA252CE2B80089EFC1 /* Pie.swift */,
-				C646CFDC25014C12008285D8 /* GridView.swift */,
-				C646CFDE250152CE008285D8 /* GridLayout.swift */,
-				C646CFD824FFF7C1008285D8 /* MemoryGame.swift */,
-				C646CFDA24FFFB00008285D8 /* EmojiMemoryGame.swift */,
+				E7363CC7252DD4AE0089EFC1 /* Entities */,
+				E7363CC6252DD4A40089EFC1 /* ViewModel */,
+				E7363CC5252DD4970089EFC1 /* Model */,
+				E7363CC4252DD4810089EFC1 /* Utils */,
+				E7363CC3252DD42E0089EFC1 /* EssentialFies */,
+				E7363CC2252DD41A0089EFC1 /* Views */,
 				C646CFCA24FFD367008285D8 /* Assets.xcassets */,
 				C646CFCF24FFD367008285D8 /* LaunchScreen.storyboard */,
 				C646CFD224FFD367008285D8 /* Info.plist */,
@@ -94,6 +92,59 @@
 				C646CFCD24FFD367008285D8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7363CC2252DD41A0089EFC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7363CBA252CE2B80089EFC1 /* Pie.swift */,
+				C646CFDC25014C12008285D8 /* GridView.swift */,
+				C646CFDE250152CE008285D8 /* GridLayout.swift */,
+				C646CFC824FFD362008285D8 /* ContentView.swift */,
+				E7363CBE252CEBDE0089EFC1 /* Cardify.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7363CC3252DD42E0089EFC1 /* EssentialFies */ = {
+			isa = PBXGroup;
+			children = (
+				C646CFC424FFD362008285D8 /* AppDelegate.swift */,
+				C646CFC624FFD362008285D8 /* SceneDelegate.swift */,
+			);
+			path = EssentialFies;
+			sourceTree = "<group>";
+		};
+		E7363CC4252DD4810089EFC1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C646CFE0250655D4008285D8 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7363CC5252DD4970089EFC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C646CFD824FFF7C1008285D8 /* MemoryGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7363CC6252DD4A40089EFC1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C646CFDA24FFFB00008285D8 /* EmojiMemoryGame.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7363CC7252DD4AE0089EFC1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E7363CC0252DD4080089EFC1 /* Theme.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +222,7 @@
 				C646CFC524FFD362008285D8 /* AppDelegate.swift in Sources */,
 				C646CFC724FFD362008285D8 /* SceneDelegate.swift in Sources */,
 				E7363CBB252CE2B80089EFC1 /* Pie.swift in Sources */,
+				E7363CC1252DD4080089EFC1 /* Theme.swift in Sources */,
 				C646CFE1250655D4008285D8 /* Extensions.swift in Sources */,
 				C646CFD924FFF7C1008285D8 /* MemoryGame.swift in Sources */,
 				C646CFC924FFD362008285D8 /* ContentView.swift in Sources */,
