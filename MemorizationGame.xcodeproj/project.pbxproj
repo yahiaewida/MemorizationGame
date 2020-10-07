@@ -76,11 +76,11 @@
 				E7363CC6252DD4A40089EFC1 /* ViewModel */,
 				E7363CC5252DD4970089EFC1 /* Model */,
 				E7363CC4252DD4810089EFC1 /* Utils */,
-				E7363CC3252DD42E0089EFC1 /* EssentialFies */,
 				E7363CC2252DD41A0089EFC1 /* Views */,
 				C646CFCA24FFD367008285D8 /* Assets.xcassets */,
 				C646CFCF24FFD367008285D8 /* LaunchScreen.storyboard */,
 				C646CFD224FFD367008285D8 /* Info.plist */,
+				E7363CC3252DD42E0089EFC1 /* EssentialFies */,
 				C646CFCC24FFD367008285D8 /* Preview Content */,
 			);
 			path = MemorizationGame;
@@ -97,11 +97,11 @@
 		E7363CC2252DD41A0089EFC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C646CFC824FFD362008285D8 /* ContentView.swift */,
+				E7363CBE252CEBDE0089EFC1 /* Cardify.swift */,
 				E7363CBA252CE2B80089EFC1 /* Pie.swift */,
 				C646CFDC25014C12008285D8 /* GridView.swift */,
 				C646CFDE250152CE008285D8 /* GridLayout.swift */,
-				C646CFC824FFD362008285D8 /* ContentView.swift */,
-				E7363CBE252CEBDE0089EFC1 /* Cardify.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

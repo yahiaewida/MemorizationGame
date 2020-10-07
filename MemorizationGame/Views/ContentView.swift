@@ -10,13 +10,47 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel : EmojiMemoryGame
+    
+    
     var body: some View {
+        NavigationView() {
+            List {
+                Section {
+                    HStack {
+                        Text("🎃")
+                        Text("Haloween")
+                    }.font(Font.system(size: 28, weight: .semibold, design: .default))
+                        .foregroundColor(Color.red)
+                    
+                }
+                Section {
+                    HStack {
+                        Text("⚽️")
+                        Text("Sports")
+                    }.font(Font.system(size: 28, weight: .semibold, design: .default))
+                    .foregroundColor(Color.green)
+                    
+                }
+                Section {
+                    HStack {
+                        Text("🍕")
+                        Text("Food")
+                    }.font(Font.system(size: 28, weight: .semibold, design: .default))
+                    .foregroundColor(Color.blue)
+                    
+                }
+                
+            }
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle("Game Themes")
+        }
         
-        GridView(viewModel.cards){ card in
-            CardView(card: card).onTapGesture {
-                self.viewModel.choose(card: card)
-            }.padding(5)
-        }.padding()
+//
+//        GridView(viewModel.cards){ card in
+//            CardView(card: card).onTapGesture {
+//                self.viewModel.choose(card: card)
+//            }.padding(5)
+//        }.padding()
     }
     
     
@@ -50,7 +84,7 @@ struct CardView : View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame()
+        let game = EmojiMemoryGame(themeType: .Sports)
         game.choose(card: game.cards[0])
         return ContentView(viewModel: game)
     }

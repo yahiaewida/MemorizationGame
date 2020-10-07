@@ -7,3 +7,22 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct Theme {
+    var title : String
+    var emojis : [String]
+    var color : UIColor
+    
+    init(title : String, emojis : [String], color : UIColor) {
+        self.title = title
+        self.emojis = emojis
+        self.color = color
+    }
+}
+
+enum ThemeType {
+    case Haloween
+    case Sports
+    case Food
+}
