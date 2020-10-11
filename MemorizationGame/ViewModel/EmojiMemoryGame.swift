@@ -11,16 +11,17 @@ import Foundation
 //MARK: Viewmodel
 
 class EmojiMemoryGame : ObservableObject{
-   @Published private var model : MemoryGame<String>
-    
+    @Published private var model : MemoryGame<String>
+    private(set) var themeType : ThemeType
     private static func createMemoryGame(themeType : ThemeType) -> MemoryGame<String>{
-        let randomNumber = Int.random(in: 2...5)
         let emojis = getThemeEmojis(themeType : themeType)
+        let randomNumber = Int.random(in: 2...emojis.count)
         return MemoryGame<String>(numberOfPairs: randomNumber) { pairIndex in
             emojis[pairIndex]
         }
     }
     init(themeType : ThemeType) {
+        self.themeType = themeType
         self.model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
     }
     
@@ -35,11 +36,11 @@ class EmojiMemoryGame : ObservableObject{
     private static func getThemeEmojis(themeType : ThemeType) -> [String] {
         switch themeType {
         case .Haloween:
-            return ["👻","🎃","🕷","😂","😀"].shuffled()
+            return ["👻","🎃","🕷","😱","🤯","😈","🥶"].shuffled()
         case .Sports:
-            return ["⚽️","🏓","🏀","🎾","🎱"].shuffled()
+            return ["⚽️","🏓","🏀","🎾","🎱","🏸","🏐","🏄","⛳️","⛹️‍♀️","🥊","🤿","🏹","🥋"].shuffled()
         default: // Food
-            return ["🍎","🍌","🍗","🍕","🍓"].shuffled()
+            return ["🍎","🍌","🍗","🍕","🍓","🍑","🍈","🍔","🥪","🥕","🥝"].shuffled()
         }
     }
 }
