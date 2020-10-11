@@ -28,7 +28,7 @@ struct HomeView: View {
     
     private func setupThemeSectionView(for themeType : ThemeType, withEmoji emoji : String, andText text : String, andColor color : Color ) -> some View {
         Section {
-            NavigationLink(destination: CardsThemeView(viewModel: EmojiMemoryGame(themeType: themeType))) {
+            NavigationLink(destination: CardsThemeView(viewModel: EmojiMemoryGame(themeType: themeType, themeColor: color))) {
                 HStack {
                     Text(emoji)
                     Text(text)
@@ -39,10 +39,11 @@ struct HomeView: View {
     }
     
     private func setupButtonSectionView() -> some View {
-        Section {
+        let themeType = selectRandomTheme()
+        return Section {
             HStack {
                 Spacer()
-                NavigationLink(destination: CardsThemeView(viewModel: EmojiMemoryGame(themeType: selectRandomTheme()))) {
+                NavigationLink(destination: CardsThemeView(viewModel: EmojiMemoryGame(themeType: themeType, themeColor: getThemeColor(themeType: themeType)))) {
                     Button(action: {
                         print("Button tapped!")
                     }) {
@@ -63,6 +64,17 @@ struct HomeView: View {
     private func selectRandomTheme() -> ThemeType {
         let randomNumber = Int.random(in: 0...2)
         return ThemeType.getThemeByIndex(index : randomNumber)
+    }
+    
+    private func getThemeColor(themeType type : ThemeType) -> Color {
+        switch type {
+        case .Haloween :
+            return Color.orange
+        case .Sports :
+            return Color.green
+        default:
+            return Color.blue
+        }
     }
     
     // MARK:- Constants

@@ -13,12 +13,12 @@ struct CardsThemeView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.themeType.rawValue)
+            Text(viewModel.theme.type.rawValue)
                 .fontWeight(.semibold)
                 .font(.title)
             
             GridView(viewModel.cards){ card in
-                CardView(card: card).onTapGesture {
+                CardView(card: card, color: self.viewModel.theme.color).onTapGesture {
                     withAnimation(.linear(duration: self.animationDuration)) {
                         self.viewModel.choose(card: card)
                     }
@@ -57,7 +57,7 @@ struct CardsThemeView: View {
 
 struct CardsThemeView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGame(themeType: .Sports)
+        let game = EmojiMemoryGame(themeType: .Sports, themeColor: .green)
         game.choose(card: game.cards[0])
         return CardsThemeView(viewModel: game)
     }

@@ -12,12 +12,14 @@ import SwiftUI
 struct Theme {
     var title : String
     var emojis : [String]
-    var color : UIColor
+    var color : Color
+    var type : ThemeType
     
-    init(title : String, emojis : [String], color : UIColor) {
+    init(title : String, emojis : [String], color : Color,type : ThemeType) {
         self.title = title
         self.emojis = emojis
         self.color = color
+        self.type = type
     }
 }
 

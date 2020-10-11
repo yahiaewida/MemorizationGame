@@ -15,7 +15,8 @@ class EmojiMemoryGame : ObservableObject{
     //MARK:- Variables
     @Published private var model : MemoryGame<String>
     @Published private(set) var count : Int
-    private(set) var themeType : ThemeType
+    private(set) var theme : Theme
+    //private(set) var themeType : ThemeType
     
     
     var cards : Array<MemoryGame<String>.Card> {
@@ -23,9 +24,9 @@ class EmojiMemoryGame : ObservableObject{
     }
     
     //MARK:- init
-    init(themeType : ThemeType) {
+    init(themeType : ThemeType , themeColor : Color) {
         self.count = 0
-        self.themeType = themeType
+        self.theme = Theme(title: themeType.rawValue, emojis: EmojiMemoryGame.getThemeEmojis(themeType: themeType), color: themeColor, type: themeType)
         self.model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
     }
     
@@ -51,7 +52,7 @@ class EmojiMemoryGame : ObservableObject{
     
     func resetGame() {
         count = 0        
-        model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
+        model = EmojiMemoryGame.createMemoryGame(themeType : theme.type)
     }
     
     private static func getThemeEmojis(themeType : ThemeType) -> [String] {
