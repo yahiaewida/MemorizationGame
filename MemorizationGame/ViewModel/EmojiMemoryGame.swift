@@ -7,12 +7,29 @@
 //
 
 import Foundation
+import SwiftUI
 
 //MARK: Viewmodel
 
 class EmojiMemoryGame : ObservableObject{
+    //MARK:- Variables
     @Published private var model : MemoryGame<String>
+    @Published private(set) var count : Int
     private(set) var themeType : ThemeType
+    
+    
+    var cards : Array<MemoryGame<String>.Card> {
+        model.cards
+    }
+    
+    //MARK:- init
+    init(themeType : ThemeType) {
+        self.count = 0
+        self.themeType = themeType
+        self.model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
+    }
+    
+    //MARK:- Core Functions
     private static func createMemoryGame(themeType : ThemeType) -> MemoryGame<String>{
         let emojis = getThemeEmojis(themeType : themeType)
         let randomNumber = Int.random(in: 2...emojis.count)
@@ -20,17 +37,21 @@ class EmojiMemoryGame : ObservableObject{
             emojis[pairIndex]
         }
     }
-    init(themeType : ThemeType) {
-        self.themeType = themeType
-        self.model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
-    }
-    
-    var cards : Array<MemoryGame<String>.Card>{
-        model.cards
-    }
     
     func choose(card : MemoryGame<String>.Card) {
-        model.choose(card: card)
+        let isValidMove = model.choose(card: card)
+        if isValidMove {
+            count += 1
+        }
+    }
+    
+    func resetFacedUpCard() {
+        model.resetFacedUpCard() // Reset facedUpCardFirst because if not it will be obvious what is inside the card after reset
+    }
+    
+    func resetGame() {
+        count = 0        
+        model = EmojiMemoryGame.createMemoryGame(themeType : themeType)
     }
     
     private static func getThemeEmojis(themeType : ThemeType) -> [String] {

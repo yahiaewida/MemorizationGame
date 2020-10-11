@@ -11,6 +11,7 @@ import Foundation
 // MARK: Model
 
 struct MemoryGame<CardContent> where CardContent : Equatable{
+    //MARK:- Variables
     private(set) var cards :[Card]
     private var indexOfFaceUpCard : Int?{
         get{ cards.indices.filter { cards[$0].isFaceUp }.only }
@@ -20,8 +21,26 @@ struct MemoryGame<CardContent> where CardContent : Equatable{
             }
         }
     }
+    struct Card : Identifiable{
+        var isFaceUp = false
+        var isMatched = false
+        var content : CardContent
+        var id: Int
+    }
     
-    mutating func choose(card : Card) {
+    //MARK:- init
+    init(numberOfPairs : Int , cardContentFactory: (Int) -> CardContent) {
+        cards = [Card]()
+        for index in 0..<numberOfPairs{
+            let content = cardContentFactory(index)
+            cards.append(Card(content: content , id : index * 2))
+            cards.append(Card(content: content,id : index * 2 + 1))
+        }
+    }
+    
+    //MARK:- Core Functions
+    // Boolean returns true if it's new move and returns false if the same move repeated
+    mutating func choose(card : Card) -> Bool{
         let index = cards.firstIndex(of: card)
         if let chosenIndex = index , !cards[chosenIndex].isFaceUp , !cards[chosenIndex].isMatched{
             if let faceUpIndex = indexOfFaceUpCard{
@@ -33,22 +52,14 @@ struct MemoryGame<CardContent> where CardContent : Equatable{
             }else{
                 indexOfFaceUpCard = chosenIndex
             }
+            return true
         }
+        return false
     }
     
-    init(numberOfPairs : Int , cardContentFactory: (Int) -> CardContent) {
-        cards = [Card]()
-        for index in 0..<numberOfPairs{
-            let content = cardContentFactory(index)
-            cards.append(Card(content: content , id : index * 2))
-            cards.append(Card(content: content,id : index * 2 + 1))
+    mutating func resetFacedUpCard() {
+        if let indexOfFaceUpCardValue = indexOfFaceUpCard {
+            cards[indexOfFaceUpCardValue].isFaceUp = false
         }
-    }
-    
-    struct Card : Identifiable{
-        var isFaceUp = false
-        var isMatched = false
-        var content : CardContent
-        var id: Int
     }
 }

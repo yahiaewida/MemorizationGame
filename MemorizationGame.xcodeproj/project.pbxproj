@@ -22,6 +22,7 @@
 		E7363CBF252CEBDE0089EFC1 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7363CBE252CEBDE0089EFC1 /* Cardify.swift */; };
 		E7363CC1252DD4080089EFC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7363CC0252DD4080089EFC1 /* Theme.swift */; };
 		E781AD792533032800D9B682 /* CardsThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781AD782533032800D9B682 /* CardsThemeView.swift */; };
+		E781AD7B2533438E00D9B682 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781AD7A2533438E00D9B682 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		E7363CBE252CEBDE0089EFC1 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		E7363CC0252DD4080089EFC1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E781AD782533032800D9B682 /* CardsThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsThemeView.swift; sourceTree = "<group>"; };
+		E781AD7A2533438E00D9B682 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				C646CFC824FFD362008285D8 /* HomeView.swift */,
 				E781AD782533032800D9B682 /* CardsThemeView.swift */,
+				E781AD7A2533438E00D9B682 /* CardView.swift */,
 				E7363CBE252CEBDE0089EFC1 /* Cardify.swift */,
 				E7363CBA252CE2B80089EFC1 /* Pie.swift */,
 				C646CFDC25014C12008285D8 /* GridView.swift */,
@@ -228,6 +231,7 @@
 				E7363CBB252CE2B80089EFC1 /* Pie.swift in Sources */,
 				E7363CC1252DD4080089EFC1 /* Theme.swift in Sources */,
 				C646CFE1250655D4008285D8 /* Extensions.swift in Sources */,
+				E781AD7B2533438E00D9B682 /* CardView.swift in Sources */,
 				C646CFD924FFF7C1008285D8 /* MemoryGame.swift in Sources */,
 				C646CFC924FFD362008285D8 /* HomeView.swift in Sources */,
 				C646CFDF250152CE008285D8 /* GridLayout.swift in Sources */,

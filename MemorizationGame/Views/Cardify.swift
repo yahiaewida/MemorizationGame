@@ -9,22 +9,38 @@
 import SwiftUI
 
 // make the content of the card of generic type for any view
-struct Cardify : ViewModifier {
+struct Cardify : AnimatableModifier {
     private let cornerRadius : CGFloat = 10.0
     private let lineWidth : CGFloat = 3
-    var isFaceUp : Bool
+    var rotation : Double
+    
+    var isFaceUp : Bool {
+        rotation < 90
+    }
+    
+    var animatableData: Double {
+        get { return rotation }
+        set { rotation = newValue  }
+    }
+    
+    init(isFaceUp : Bool) {
+        rotation = isFaceUp ? 0 : 180
+    }
     
     func body(content: Content) -> some View {
         ZStack {
-            if isFaceUp{
+            Group{
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke( lineWidth: lineWidth)
                 content
-            }else{
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
-            }
-        }.foregroundColor(Color.orange)
-        
+            }.opacity(isFaceUp ? 1 : 0)
+            
+            RoundedRectangle(cornerRadius: cornerRadius).fill(Color.orange)
+                .opacity(isFaceUp ? 0 : 1)
+            
+        }
+        .foregroundColor(Color.orange)
+        .rotation3DEffect(Angle.init(degrees: rotation), axis: (0,1,0))
     }
 }
 

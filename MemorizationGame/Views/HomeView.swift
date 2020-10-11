@@ -22,7 +22,6 @@ struct HomeView: View {
                     .listStyle(GroupedListStyle())
                     .navigationBarTitle("Game Themes")
                 }
-                
             }
         }
     }
@@ -33,7 +32,7 @@ struct HomeView: View {
                 HStack {
                     Text(emoji)
                     Text(text)
-                }.font(Font.system(size: 28, weight: .semibold, design: .default))
+                }.font(Font.system(size: fontSize, weight: .semibold, design: .default))
                     .foregroundColor(color)
             }
         }
@@ -52,8 +51,8 @@ struct HomeView: View {
                             .font(.headline)
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.red.opacity(0.7))
-                            .cornerRadius(40)
+                            .background(Color.red.opacity(opacity))
+                            .cornerRadius(cornerRadius)
                     }
                 }
                 Spacer()
@@ -65,32 +64,11 @@ struct HomeView: View {
         let randomNumber = Int.random(in: 0...2)
         return ThemeType.getThemeByIndex(index : randomNumber)
     }
-}
-
-struct CardView : View{
-    var card : MemoryGame<String>.Card
-    var body: some View{
-        GeometryReader { geometry in
-            self.body(for: geometry.size)
-        }
-    }
-    
-    //View Builder would draw if the condition is true, otherwise would draw nothing
-    @ViewBuilder
-    private func body(for size: CGSize) -> some View{
-        if card.isFaceUp || !card.isMatched {
-            ZStack {
-                Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90), clockwise: true).padding(5).opacity(0.4)
-                Text(self.card.content)
-            }.font(Font.system(size: min(size.width, size.height) * fontScaleFactor))
-                .foregroundColor(Color.orange)
-                .cardify(isFaceUp: self.card.isFaceUp)
-        }
-    }
     
     // MARK:- Constants
-    private let fontScaleFactor : CGFloat = 0.7
-    private let aspectRatio : CGFloat = 2/3
+    private let fontSize : CGFloat = 28
+    private let cornerRadius : CGFloat = 40
+    private let opacity : Double = 0.7
 }
 
 struct ContentView_Previews: PreviewProvider {
